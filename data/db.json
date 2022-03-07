@@ -11,9 +11,14 @@
       "id": 2
     },
     {
-      "name": "edit name",
-      "description": "edit descript",
-      "id": 3
+      "name": "Mock Rendering in React",
+      "description": "h",
+      "id": 4
+    },
+    {
+      "name": "new deck",
+      "description": "new deck description",
+      "id": 5
     }
   ],
   "cards": [
@@ -54,22 +59,22 @@
       "id": 8
     },
     {
-      "front": "two",
-      "back": "two",
-      "deckId": 3,
-      "id": 10
-    },
-    {
-      "front": "three",
-      "back": "three",
-      "deckId": 3,
-      "id": 11
+      "front": "front",
+      "back": "back\n",
+      "deckId": 4,
+      "id": 13
     },
     {
       "front": "front",
-      "back": "back\n",
-      "deckId": 3,
-      "id": 12
+      "back": "back",
+      "deckId": 4,
+      "id": 14
+    },
+    {
+      "front": "front",
+      "back": "back",
+      "deckId": 4,
+      "id": 15
     }
   ]
 }

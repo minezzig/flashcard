@@ -1,13 +1,19 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { createDeck } from "../utils/api/index";
 import { updateDeck } from "../utils/api/index";
 
-function DeckForm({ purpose, deckId, deck, nameEdit, descriptionEdit }) {
+function DeckForm({ purpose, deckId, deck, deckName, deckDescription }) {
   const history = useHistory();
-  const initialFormData = { name: nameEdit, description: descriptionEdit };
+  const initialFormData = { name: deckName, description: deckDescription };
   const [formData, setFormData] = useState(initialFormData);
+
+  console.log(formData.name, formData.description);
+
+  useEffect(() => {
+   setFormData({ name: deckName, description: deckDescription });
+  }, [deckName, deckDescription]);
 
   const handleChange = ({ target }) => {
     setFormData({ ...formData, [target.name]: target.value });

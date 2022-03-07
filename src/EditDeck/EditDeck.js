@@ -38,7 +38,7 @@ function EditDeck() {
         <Link to={`/decks/${deckId}`}> {deck.name}</Link> / Edit Deck
       </nav>
       <h1>Edit Deck</h1>
-      <DeckForm purpose={"edit"} deckId={deckId} deck={deck} nameEdit={deck.name} descriptionEdit={deck.description}/>
+      <DeckForm purpose={"edit"} deckId={deckId} deck={deck} deckName={deck.name} deckDescription={deck.description}/>
     </div>
   );
 }
