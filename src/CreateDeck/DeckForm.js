@@ -6,18 +6,15 @@ import { updateDeck } from "../utils/api/index";
 
 function DeckForm({ purpose, deckId, deck, deckName, deckDescription }) {
   const history = useHistory();
-  const initialFormData = { name: deckName, description: deckDescription };
-  const [formData, setFormData] = useState(initialFormData);
-
-  console.log(formData.name, formData.description);
+  const initialFormData = { name: " ", description: " " };
+  const [formData, setFormData] = useState({...initialFormData});
 
   useEffect(() => {
-   setFormData({ name: deckName, description: deckDescription });
+    setFormData({ name: deckName, description: deckDescription });
   }, [deckName, deckDescription]);
 
   const handleChange = ({ target }) => {
     setFormData({ ...formData, [target.name]: target.value });
-    console.log(formData);
   };
 
   const handleSubmit = async (event) => {

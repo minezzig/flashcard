@@ -72,7 +72,7 @@ function DeckScreen() {
           type="button"
           onClick={() => history.push(`/decks/${deckId}/cards/new`)}
         >
-          +Add Cards
+          Add Cards
         </button>
         <button type="button" onClick={deleteHandler}>
           Delete

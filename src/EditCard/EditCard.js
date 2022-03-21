@@ -2,18 +2,16 @@
 
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link, useParams, useHistory } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { readDeck } from "../utils/api/index";
 import { readCard } from "../utils/api/index";
-import { updateCard } from "../utils/api/index";
+
+import CardForm from "../AddCard/CardForm";
 
 function EditCard() {
   const [deck, setDeck] = useState({});
   const [card, setCard] = useState({});
-  const [front, setFront] = useState("");
-  const [back, setBack] = useState("");
   const { deckId, cardId } = useParams();
-  const history = useHistory();
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -37,34 +35,21 @@ function EditCard() {
     return () => abortController.abort();
   }, [deckId, cardId]);
 
-  const handleFrontChange = ({ target }) => {
-    setFront(target.value);
-  };
-
-  const handleBackChange = ({ target }) => {
-    setBack(target.value);
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    console.log(deck);
-    const updatedCard = { ...card, front, back };
-    console.log("updatead", updatedCard);
-    await updateCard(updatedCard);
-    history.push(`/decks/${deckId}`);
-  };
-
   return (
     <div>
-      {!card && <h1>LOADING</h1>}
-      {card && (
-        <div>
-          <nav>
-            <Link to={"/"}>Home</Link> /
-            <Link to={`/decks/${deckId}`}> {deck.name}</Link> / Edit Card{" "}
-            {cardId}
-          </nav>
-          <h2>Edit Card</h2>
+      <nav>
+        <Link to={"/"}>Home</Link> /
+        <Link to={`/decks/${deckId}`}> {deck.name}</Link> / Edit Card {cardId}
+      </nav>
+      <h2>Edit Card</h2>
+      <CardForm card={card} deckId={deckId} cardFront={card.front} cardBack={card.back}/>
+    </div>
+  );
+}
+
+export default EditCard;
+
+/* // original form before adding to Card From
           <form>
             <div>
               <label htmlFor="name">
@@ -100,10 +85,4 @@ function EditCard() {
               </button>
             </div>
           </form>
-        </div>
-      )}
-    </div>
-  );
-}
-
-export default EditCard;
+*/

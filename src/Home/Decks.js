@@ -40,7 +40,7 @@ function Decks() {
   return (
     // map through decks to create  a deck card for each
     <div>
-      {deckList.length === 0 && <p>LOADING...</p>}
+      
       {deckList.map((deck, index) => (
         <Deck deck={deck} key={index} />
       ))}

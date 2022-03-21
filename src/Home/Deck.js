@@ -17,8 +17,9 @@ function Deck({ deck }) {
       history.go(0)
     }
   }
+  
   return (
-    <section style={style}>
+    <div style={style}>
       <h2>
         {deck.id} - {deck.name} ({deck.cards.length})
       </h2>
@@ -44,7 +45,7 @@ function Deck({ deck }) {
       >
         delete
       </button>
-    </section>
+    </div>
   );
 }
 

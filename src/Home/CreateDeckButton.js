@@ -7,7 +7,7 @@ function CreateDeckButton() {
 
   return (
     <button type="button" onClick={() => history.push("/decks/new")}>
-      + Create Deck
+      Create Deck
     </button>
   );
 }
