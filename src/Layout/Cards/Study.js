@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { readDeck } from "../utils/api/index";
+import { readDeck } from "../../utils/api/index";
 import Cards from "./Cards";
 
 function Study() {
@@ -11,7 +11,6 @@ function Study() {
   useEffect(() => {
     const abortController = new AbortController();
     const signal = abortController.signal;
-
     const getDeck = async () => {
       try {
         const response = await readDeck(deckId, signal);
@@ -25,7 +24,6 @@ function Study() {
       }
     };
     getDeck();
-
     return () => abortController.abort();
   }, [deckId]);
 

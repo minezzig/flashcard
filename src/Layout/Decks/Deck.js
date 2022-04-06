@@ -1,12 +1,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams, Link, useHistory } from "react-router-dom";
-import { readDeck } from "../utils/api/index";
-import DeckScreenCards from "./DeckScreenCards";
-import { deleteDeck } from "../utils/api/index";
-import { deleteCard } from "../utils/api/index";
+import { readDeck } from "../../utils/api/index";
+import { deleteDeck } from "../../utils/api/index";
+import { deleteCard } from "../../utils/api/index";
 
-function DeckScreen() {
+
+//const style = { border: "2px solid black", padding: "10px" };
+
+function Deck() {
   const history = useHistory();
   const { deckId } = useParams();
   const [deck, setDeck] = useState({});
@@ -57,40 +59,54 @@ function DeckScreen() {
         <h2>{deck.name}</h2>
         <p>{deck.description}</p>
         <button
+        className="button button-view"
           type="button"
           onClick={() => history.push(`/decks/${deckId}/edit`)}
         >
           Edit
         </button>
         <button
+        className="button button-study"
           type="button"
           onClick={() => history.push(`/decks/${deckId}/study`)}
         >
           Study
         </button>
         <button
+        className="button button-view"
           type="button"
           onClick={() => history.push(`/decks/${deckId}/cards/new`)}
         >
-          Add Cards
+         Add Card
         </button>
-        <button type="button" onClick={deleteHandler}>
+        <button className="button button-delete" type="button" onClick={deleteHandler}>
           Delete
         </button>
       </div>
       <div>
         <h2>Cards</h2>
-        {cards.map((card) => (
-          <DeckScreenCards
-            card={card}
-            deckId={deckId}
-            deleteCardHandler={deleteCardHandler}
-            key={card.id}
-          />
+        {cards.map((card, index) => (
+          <div key={index} className="card-body">
+            <p>{card.front}</p>
+
+            <p>{card.back} </p>
+
+            <button className="button button-view"
+              type="button"
+              onClick={() =>
+                history.push(`/decks/${deckId}/cards/${card.id}/edit`)
+              }
+            >
+              edit
+            </button>
+            <button className="button button-delete"type="button" onClick={() => deleteCardHandler(card.id)}>
+              delete
+            </button>
+          </div>
         ))}
       </div>
     </div>
   );
 }
 
-export default DeckScreen;
+export default Deck;

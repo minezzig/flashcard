@@ -1,28 +1,22 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Deck from "./Deck";
-import { listDecks } from "../utils/api/index";
-/*
-4 steps to clean up: 
-1) declare abort controler
-2) send signal to request
-3) add try catch with error
-4) return 
-*/
+import { useHistory } from "react-router-dom";
+import DeckList from "./DeckList";
+import { listDecks } from "../../utils/api/index";
+import "../style.css";
 
-function Decks() {
+function Home() {
   // set up state for displaying decks
-  const [deckList, setDeckList] = useState([]);
-
+  const [decks, setDecks] = useState([]);
+  const history = useHistory();
   // set up use effect to load decks
   useEffect(() => {
     const abortController = new AbortController();
     const signal = abortController.signal;
-
     async function getDecks() {
       try {
         const response = await listDecks(signal);
-        setDeckList(response);
+        setDecks(response);
       } catch (error) {
         if (error.name === "AbortError") {
           console.log(error);
@@ -31,21 +25,19 @@ function Decks() {
         }
       }
     }
-
     getDecks();
-
     return () => abortController.abort();
   }, []);
 
   return (
-    // map through decks to create  a deck card for each
     <div>
-      
-      {deckList.map((deck, index) => (
-        <Deck deck={deck} key={index} />
+      <button className="button button-create" type="button" onClick={() => history.push("/decks/new")}>
+        + Create Deck
+      </button>
+      {decks.map((deck) => (
+      <DeckList deck={deck}/>
       ))}
     </div>
   );
 }
-
-export default Decks;
+export default Home;

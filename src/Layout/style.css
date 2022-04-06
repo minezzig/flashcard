@@ -1,0 +1,93 @@
+html,
+body {
+  background: linear-gradient(to left, rgb(194, 213, 229), rgb(118, 175, 240));
+}
+
+.heading {
+  background-color: rgb(93, 127, 167);
+  text-align: center;
+}
+
+
+.card-body {
+  background-color: rgb(54, 96, 145);
+  color: white;
+  margin: 20px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 5px slateblue;
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  border: none;
+  padding: 7px;
+  color: white;
+  border-radius: 6px;
+  width: 90px;
+  margin: 10px;
+  box-shadow: 3px 3px black;
+}
+
+.button:focus,
+.button:active {
+  border: 0;
+  outline: 0;
+}
+.button-create {
+  background-color: #3535ce;
+  width: 150px;
+}
+.button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+.button-view {
+  background-color: #3535ce;
+}
+
+.button-study {
+  background-color: rgb(112, 138, 172);
+}
+
+.button-delete {
+  background-color: rgb(224, 24, 174);
+}
+
+.float-right {
+  float: right;
+}
+
+.card-front {
+  background-color: rgb(54, 96, 145);
+  padding: 20px 30px;
+  box-shadow: 5px 5px 5px black;
+  border-radius: 10px;
+  width: 300px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+.card-back {
+  background-color: rgb(93, 127, 167);
+  padding: 10px 30px;
+  box-shadow: 5px 5px 5px black;
+  border-radius: 10px;
+  width: 300px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.border {
+  border: 2px solid black;
+}

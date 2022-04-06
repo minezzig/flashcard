@@ -1,13 +1,13 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Header from "./Header";
-import Home from "../Home/Home";
-import CreateDeck from "../CreateDeck/CreateDeck";
-import DeckScreen from "../DeckScreen/DeckScreen";
-import EditDeck from "../EditDeck/EditDeck";
-import Study from "../Study/Study";
-import NewCard from "../AddCard/AddCard";
-import EditCard from "../EditCard/EditCard";
+import Home from "./Main/Home";
+import CreateDeck from "./Decks/CreateDeck";
+import Deck from "./Decks/Deck";
+import EditDeck from "./Decks/EditDeck";
+import Study from "./Cards/Study";
+import AddCard from "./Cards/AddCard";
+import EditCard from "./Cards/EditCard";
 import NotFound from "./NotFound";
 
 function Layout() {
@@ -15,27 +15,26 @@ function Layout() {
     <div>
       <Header />
       <div className="container">
-        {/* TODO: Implement the screen starting here */}
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/decks/new">
+          <Route path="/decks/new">
             <CreateDeck />
           </Route>
           <Route exact path="/decks/:deckId">
-            <DeckScreen />
+            <Deck />
           </Route>
-          <Route exact path="/decks/:deckId/edit">
+          <Route path="/decks/:deckId/edit">
             <EditDeck />
           </Route>
-          <Route exact path="/decks/:deckId/study">
+          <Route path="/decks/:deckId/study">
             <Study />
           </Route>
-          <Route exact path="/decks/:deckId/cards/new">
-            <NewCard />
+          <Route path="/decks/:deckId/cards/new">
+            <AddCard />
           </Route>
-          <Route exact path="/decks/:deckId/cards/:cardId/edit">
+          <Route path="/decks/:deckId/cards/:cardId/edit">
             <EditCard />
           </Route>
           <Route>
