@@ -19,7 +19,7 @@ function DeckList({ deck }) {
   }
 
   return (
-    <div key={deck.id} >
+    <div>
       <div className="card-body">
         <div className="card-head">
           <h2>{deck.name}</h2>

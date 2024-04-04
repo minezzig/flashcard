@@ -85,6 +85,7 @@ export async function listDecks(signal) {
  *  a promise that resolves the saved deck, which will now have an `id` property.
  */
 export async function createDeck(deck, signal) {
+  console.log("CRWEATREW")
   const url = `${API_BASE_URL}/decks`;
   const options = {
     method: "POST",

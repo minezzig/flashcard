@@ -31,12 +31,18 @@ function Home() {
 
   return (
     <div>
-      <button className="button button-create" type="button" onClick={() => history.push("/decks/new")}>
+      <button
+        className="button button-create"
+        type="button"
+        onClick={() => history.push("/decks/new")}
+      >
         + Create Deck
       </button>
-      {decks.map((deck) => (
-      <DeckList deck={deck}/>
-      ))}
+      {!decks.length ? (
+        <div style={{ fontSize: "24px", color: "white" }}>Loading...</div>
+      ) : (
+        decks.map((deck) => <DeckList deck={deck} key={deck.id}  />)
+      )}
     </div>
   );
 }

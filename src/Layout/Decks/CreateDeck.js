@@ -10,7 +10,6 @@ function CreateDeck() {
 
     //name input
     const changeName = (event) => {
-      console.log(event.target.value);
       setDeck({ ...deck, name: event.target.value });
     };
   
