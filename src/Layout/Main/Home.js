@@ -39,7 +39,7 @@ function Home() {
         + Create Deck
       </button>
       {!decks.length ? (
-        <div style={{ fontSize: "24px", color: "white" }}>Loading...</div>
+        <div style={{ fontSize: "24px", color: "white" }}>Loading decks...</div>
       ) : (
         decks.map((deck) => <DeckList deck={deck} key={deck.id}  />)
       )}
